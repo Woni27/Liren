@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dalian Liren Smile Fashion Co., Ltd.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f172a;          /* slate-900 */
+      --fg:#0b1220;          /* darker bg for sections */
+      --card:#111827;        /* gray-900 */
+      --muted:#94a3b8;       /* slate-400 */
+      --text:#e5e7eb;        /* gray-200 */
+      --brand:#60a5fa;       /* blue-400 */
+      --accent:#f59e0b;      /* amber-500 */
+      --ok:#34d399;          /* emerald-400 */
+      --danger:#ef4444;      /* red-500 */
+      --radius:16px;
+      --shadow:0 10px 30px rgba(2,6,23,.35);
+      --maxw:1150px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji";
+      background:linear-gradient(180deg,var(--bg),#0b1021 40%, #0a0f1f);
+      color:var(--text);
+    }
+    a{color:var(--brand);text-decoration:none}
+    a:hover{opacity:.9}
+
+    /* Header / Nav */
+    header{position:sticky; top:0; z-index:50; backdrop-filter: blur(12px); background:rgba(2,6,23,.55); border-bottom:1px solid rgba(148,163,184,.15)}
+    .nav{max-width:var(--maxw); margin:auto; display:flex; align-items:center; justify-content:space-between; padding:14px 20px}
+    .logo{display:flex; align-items:center; gap:10px; font-weight:700}
+    .logo-mark{width:36px; height:36px; border-radius:10px; display:grid; place-items:center; background:linear-gradient(135deg,var(--brand),#7dd3fc)}
+    .logo span{letter-spacing:.3px}
+    .menu a{margin:0 12px; color:#cbd5e1; font-weight:600}
+    .menu a:hover{color:white}
+    .cta{padding:10px 14px; background:linear-gradient(135deg,var(--brand),#7c3aed); border-radius:999px; color:white; font-weight:700; box-shadow:var(--shadow)}
+
+    /* Hero */
+    .hero{max-width:var(--maxw); margin:0 auto; padding:72px 20px 48px; display:grid; grid-template-columns:1.1fr .9fr; gap:36px; align-items:center}
+    .eyebrow{display:inline-flex; gap:8px; align-items:center; padding:6px 12px; border-radius:999px; background:rgba(96,165,250,.12); color:#bfdbfe; font-weight:600; font-size:12px; letter-spacing:.4px}
+    .title{font-family:Playfair Display, serif; font-weight:700; font-size:48px; line-height:1.1; margin:.6rem 0 1rem}
+    .subtitle{color:var(--muted); font-size:18px}
+    .hero-actions{margin-top:22px; display:flex; gap:12px; flex-wrap:wrap}
+    .btn{border:1px solid rgba(148,163,184,.2); color:white; padding:10px 14px; border-radius:10px; font-weight:600}
+    .btn.primary{border:none; background:linear-gradient(135deg,var(--brand),#22d3ee)}
+
+    .hero-card{background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02)); border:1px solid rgba(148,163,184,.15); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow)}
+    .hero-media{aspect-ratio:4/3; background:url('https://images.unsplash.com/photo-1581091014534-8987c1d648b1?q=80&w=1600&auto=format&fit=crop') center/cover}
+    .hero-stats{display:grid; grid-template-columns:repeat(3,1fr); gap:0; border-top:1px solid rgba(148,163,184,.15)}
+    .stat{padding:16px; text-align:center}
+    .stat .num{font-weight:800; font-size:22px}
+    .stat .lbl{color:var(--muted); font-size:12px}
+
+    /* Sections */
+    section{max-width:var(--maxw); margin:0 auto; padding:60px 20px}
+    h2{font-family:Playfair Display,serif; font-size:34px; margin:0 0 10px}
+    .lead{color:#c7d2fe}
+
+    /* About */
+    .about{display:grid; grid-template-columns:1fr 1fr; gap:28px}
+    .about .panel{background:rgba(17,24,39,.6); border:1px solid rgba(148,163,184,.12); border-radius:var(--radius); padding:20px}
+
+    /* Team */
+    .grid{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
+    .card{background:rgba(17,24,39,.6); border:1px solid rgba(148,163,184,.12); border-radius:var(--radius); padding:18px}
+    .avatar{width:72px; height:72px; border-radius:50%; background:#0b1220; margin-bottom:10px; background-size:cover; background-position:center}
+    .role{color:var(--muted); font-size:14px}
+
+    /* Capability */
+    .features{display:grid; grid-template-columns:repeat(4,1fr); gap:16px}
+    .feature{background:rgba(17,24,39,.6); border:1px solid rgba(148,163,184,.12); border-radius:var(--radius); padding:18px}
+    .badge{display:inline-block; font-size:12px; color:#e2e8f0; background:rgba(96,165,250,.15); border:1px solid rgba(96,165,250,.35); padding:3px 8px; border-radius:999px}
+
+    /* Products */
+    .products{display:grid; grid-template-columns:repeat(4,1fr); gap:18px}
+    .product{overflow:hidden; border-radius:var(--radius); background:rgba(17,24,39,.6); border:1px solid rgba(148,163,184,.12)}
+    .product .img{aspect-ratio:4/5; background:#0b1220; background-size:cover; background-position:center}
+    .product .body{padding:14px}
+    .product .meta{display:flex; justify-content:space-between; color:var(--muted); font-size:12px}
+
+    /* Contact */
+    .contact{display:grid; grid-template-columns:1.1fr .9fr; gap:18px}
+    form{display:grid; gap:12px}
+    input, textarea{width:100%; padding:12px 14px; border-radius:10px; border:1px solid rgba(148,163,184,.25); background:#0b1220; color:#e5e7eb}
+    textarea{min-height:120px}
+    .submit{justify-self:start}
+    .contact .panel{background:rgba(17,24,39,.6); border:1px solid rgba(148,163,184,.12); border-radius:var(--radius); padding:18px}
+
+    /* Footer */
+    footer{border-top:1px solid rgba(148,163,184,.15); background:rgba(2,6,23,.6)}
+    .foot{max-width:var(--maxw); margin:auto; padding:30px 20px; display:grid; grid-template-columns:1.2fr .8fr; gap:18px; color:#cbd5e1}
+
+    /* Responsive */
+    @media (max-width: 1024px){
+      .hero{grid-template-columns:1fr; padding-top:52px}
+      .about{grid-template-columns:1fr}
+      .grid{grid-template-columns:repeat(2,1fr)}
+      .features{grid-template-columns:repeat(2,1fr)}
+      .products{grid-template-columns:repeat(2,1fr)}
+      .contact{grid-template-columns:1fr}
+      .foot{grid-template-columns:1fr}
+    }
+    @media (max-width:600px){
+      .grid,.features,.products{grid-template-columns:1fr}
+      .title{font-size:36px}
+    }
+  </style>
+</head>
+<body>
+  <!-- Top Nav -->
+  <header>
+    <div class="nav">
+      <div class="logo">
+        <div class="logo-mark">✨</div>
+        <span>Dalian Liren Smile Fashion Co., Ltd.</span>
+      </div>
+      <nav class="menu">
+        <a href="#about">About</a>
+        <a href="#team">Team</a>
+        <a href="#oem">OEM</a>
+        <a href="#products">Products</a>
+        <a href="#contact" class="cta">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" id="home">
+    <div>
+      <span class="eyebrow">Premium Women’s Outerwear · OEM / ODM</span>
+      <h1 class="title">Crafting Eco‑Friendly Outerwear with Precision since 2012</h1>
+      <p class="subtitle">Based in Dalian, China, we specialize in artificial fur, fleece, shearling and down. Trusted OEM supplier for South Korea’s Samyang Group since 2021. Flexible small‑batch to large‑scale production and multilingual trade support.</p>
+      <div class="hero-actions">
+        <a href="#products" class="btn primary">View Sample Products</a>
+        <a href="#oem" class="btn">Explore OEM Capability</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="hero-media"></div>
+      <div class="hero-stats">
+        <div class="stat"><div class="num">12+ yrs</div><div class="lbl">Craftsmanship</div></div>
+        <div class="stat"><div class="num">50+</div><div class="lbl">Partner Factories</div></div>
+        <div class="stat"><div class="num">Global</div><div class="lbl">Korean · English</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <h2>About Us</h2>
+    <p class="lead">Comprehensive apparel enterprise integrating design, production, processing, trade, and sales.</p>
+    <div class="about">
+      <div class="panel">
+        <p>Founded in 2012 in the coastal city of Dalian, China, we focus on premium women’s outerwear—including artificial fur (eco‑friendly), fleece jackets, shearling coats, and down jackets. Since 2021, we have been a trusted OEM supplier for South Korea’s <strong>Samyang Group</strong>.</p>
+        <p>Our mission is to deliver sustainable, fashion‑forward products backed by rigorous quality control, timely delivery, and transparent communication.</p>
+      </div>
+      <div class="panel">
+        <ul>
+          <li>• Multilingual trade team: Korean · English · Chinese</li>
+          <li>• Flexible MOQs—small runs to large programs</li>
+          <li>• End‑to‑end support: sampling → bulk → logistics</li>
+          <li>• Stable, audited partner factories</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team -->
+  <section id="team">
+    <h2>Leadership Team</h2>
+    <p class="lead">Experienced professionals with deep know‑how in fur & faux‑fur craftsmanship.</p>
+    <div class="grid">
+      <div class="card">
+        <div class="avatar" style="background-image:url('https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=800&auto=format&fit=crop');"></div>
+        <h3>Founder & CEO</h3>
+        <div class="role">Bilingual (Korean / Chinese)</div>
+        <p>20+ years in apparel manufacturing and international trade; specializes in fur and faux‑fur development.</p>
+      </div>
+      <div class="card">
+        <div class="avatar" style="background-image:url('https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?q=80&w=800&auto=format&fit=crop');"></div>
+        <h3>Production Manager</h3>
+        <div class="role">Quality & Efficiency</div>
+        <p>Oversees sampling, line setup, and inline QC to ensure consistent quality and on‑time delivery.</p>
+      </div>
+      <div class="card">
+        <div class="avatar" style="background-image:url('https://images.unsplash.com/photo-1531123897727-8f129e1688ce?q=80&w=800&auto=format&fit=crop');"></div>
+        <h3>International Trade Manager</h3>
+        <div class="role">Korean · English</div>
+        <p>Direct, efficient communication with global clients, supporting documentation and logistics.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- OEM Capability -->
+  <section id="oem">
+    <h2>OEM / ODM Capability</h2>
+    <p class="lead">From concept to shipment—agile development, reliable scaling, meticulous QC.</p>
+    <div class="features">
+      <div class="feature">
+        <span class="badge">Sampling</span>
+        <h3>Rapid Sample Service</h3>
+        <p>Pattern, materials, trims selection, and fit approvals. Prototype to pre‑production samples on request.</p>
+      </div>
+      <div class="feature">
+        <span class="badge">Craft</span>
+        <h3>Expert Fur & Faux‑Fur</h3>
+        <p>Team with 10+ years’ experience in fur / faux‑fur cutting, sewing, and finishing techniques.</p>
+      </div>
+      <div class="feature">
+        <span class="badge">Scale</span>
+        <h3>Flexible Production</h3>
+        <p>Audited partner factories enable small MOQs and large programs with stable lead times.</p>
+      </div>
+      <div class="feature">
+        <span class="badge">QC</span>
+        <h3>Quality Assurance</h3>
+        <p>Inline & final AQL inspections, material testing coordination, and detailed reporting.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products -->
+  <section id="products">
+    <h2>Sample Products</h2>
+    <p class="lead">Representative categories—customizable per your specification and target market.</p>
+    <div class="products">
+      <div class="product">
+        <div class="img" style="background-image:url('https://images.unsplash.com/photo-1582582621959-48d5d3b1f6c2?q=80&w=1200&auto=format&fit=crop');"></div>
+        <div class="body">
+          <h3>Artificial Fur Coats</h3>
+          <div class="meta"><span>Eco‑friendly</span><span>OEM / ODM</span></div>
+        </div>
+      </div>
+      <div class="product">
+        <div class="img" style="background-image:url('https://images.unsplash.com/photo-1593032457860-8de8d0aa70ad?q=80&w=1200&auto=format&fit=crop');"></div>
+        <div class="body">
+          <h3>Fleece Jackets</h3>
+          <div class="meta"><span>Lightweight</span><span>Custom</span></div>
+        </div>
+      </div>
+      <div class="product">
+        <div class="img" style="background-image:url('https://images.unsplash.com/photo-1552246582-9d6a8330d5d6?q=80&w=1200&auto=format&fit=crop');"></div>
+        <div class="body">
+          <h3>Shearling Coats</h3>
+          <div class="meta"><span>Warmth</span><span>Modern Fit</span></div>
+        </div>
+      </div>
+      <div class="product">
+        <div class="img" style="background-image:url('https://images.unsplash.com/photo-1539533113208-f6df8cc8b543?q=80&w=1200&auto=format&fit=crop');"></div>
+        <div class="body">
+          <h3>Down Jackets</h3>
+          <div class="meta"><span>Durable</span><span>Global Standards</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p class="lead">We’d love to hear from you—whether for inquiries, collaborations, or sample requests.</p>
+    <div class="contact">
+      <form onsubmit="event.preventDefault(); alert('Thanks! We\'ll get back to you shortly.');">
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Email" required>
+        <input type="text" placeholder="Company (optional)">
+        <textarea placeholder="Your Message"></textarea>
+        <button class="btn primary submit" type="submit">Send Message</button>
+      </form>
+      <div class="panel">
+        <h3>Business Details</h3>
+        <p>Email: <a href="mailto:info@lirensmile.com">info@lirensmile.com</a></p>
+        <p>Phone: +86-123-4567-890</p>
+        <p>Location: Dalian, China</p>
+        <p><a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://www.alibaba.com/" target="_blank" rel="noopener">Alibaba Shop (coming soon)</a></p>
+        <p class="role">Last week we participated in training at Alibaba HQ (Hangzhou) to better leverage the platform for partnerships.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="foot">
+      <div>
+        <strong>Dalian Liren Smile Fashion Co., Ltd.</strong>
+        <p style="color:#94a3b8; margin:.4rem 0 0">Premium women’s outerwear · OEM / ODM · Since 2012</p>
+      </div>
+      <div style="text-align:right">
+        <p>© 2025 All rights reserved.</p>
+        <p><a href="#home">Back to top ↑</a></p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
